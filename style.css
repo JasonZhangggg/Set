@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.grid {
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(3, clamp(100px, calc(33% - 20px), 400px));
+  grid-auto-rows: 125px;
+  grid-gap: 20px;
+}
+
+.card {
+  border-width: 0;
+  background-color: #efefe6;
+  border-radius: 10px;
+}
+
+.selected {
+  background-color: #5a594e;
+}
+
+.button-menu button {
+  height: 75px;
+  width: auto;
+  padding: 10px 40px;
+  border-width: 1.5px;
+  border-radius: 175px;
+  font-size: 25px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.button-menu {
+  display: flex;
+  gap: 20px;
+}
+
+img {
+  width: clamp(5px, 20%, 40px);
+}
+
+.black-button {
+  color: white;
+  background-color: black;
+}
+
+.white-button {
+  color: black;
+  background-color: white;
+}
+
+.gray-button {
+  color: #7f7f7f;
+  background-color: white;
+}
+
+.gray-button:hover {
+  cursor: default;
+}
+hr {
+  border: 1px solid #bfbfbf;
+  width: 100%;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 25px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+  box-sizing: border-box;
+
+  border-bottom: 1.5px solid #a3a3a3;
+  padding: 0 clamp(10px, 5%, 75px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+h1 {
+  font-size: 35px;
+  font-weight: 700;
+}
+
+dialog-div h2 {
+  margin: 20px 0;
+}
+
+.dialog-div > h1,
+.dialog-div > p {
+  margin-bottom: 15px;
+}
+
+p,
+li {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+ul {
+  padding-left: 50px;
+}
+
+.icons {
+  display: flex;
+}
+
+.card-icons {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.material-symbols-outlined {
+  background-color: white;
+  border-width: 0;
+  font-size: 45px;
+}
+
+.help,
+.settings {
+  padding: 20px 10px;
+}
+
+.help:hover,
+.settings:hover {
+  background-color: #f0f0f0;
+}
+
+.set-example {
+  padding-left: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, clamp(100px, calc(33% - 20px), 225px));
+  grid-auto-rows: 125px;
+  gap: 20px;
+}
+
+.close {
+  font-size: 30px;
+  align-self: flex-end;
+}
+
+.dialog-div {
+  display: flex;
+  flex-direction: column;
+}
+
+dialog {
+  width: 60vw;
+  height: 75vh;
+  box-sizing: border-box;
+  margin: auto;
+  border-width: 0px;
+  background: white;
+  border-radius: 4px;
+  padding: 25px 60px;
+  box-shadow: 0 3px 12px -1px rgba(0, 0, 0, 0.3);
+}
+
+.green {
+  filter: invert(97%) sepia(4%) saturate(3129%) hue-rotate(29deg)
+    brightness(96%) contrast(68%);
+}
+
+.red {
+  filter: invert(37%) sepia(93%) saturate(642%) hue-rotate(320deg)
+    brightness(99%) contrast(78%);
+}
+
+.purple {
+  filter: invert(58%) sepia(15%) saturate(844%) hue-rotate(227deg)
+    brightness(88%) contrast(84%);
+}

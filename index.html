@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="toolbar">
+        <div class="logo">
+          <img src="images/setlogo.png" />
+          <h1>Game of Set</h1>
+        </div>
+        <div class="icons">
+          <button class="settings material-symbols-outlined">settings</button>
+          <button class="help material-symbols-outlined">help</button>
+        </div>
+      </div>
+      <h2>Find sets of three!</h2>
+      <div class="grid"></div>
+      <div class="button-menu">
+        <button id="shuffle" class="white-button">Shuffle</button>
+        <button id="deselect" class="gray-button">Deselect all</button>
+        <button id="submit" class="gray-button">Submit</button>
+      </div>
+    </div>
+    <dialog>
+      <div class="dialog-div">
+        <button class="close material-symbols-outlined">close</button>
+        <h1>How to Play</h1>
+        <h2>Find sets of 3 elements</h2>
+        <p>
+          In the game, certain <strong>combinations of three cards</strong> are
+          said to make up a "set". For all the categories of features:
+        </p>
+        <ul>
+          <li><strong>NUMBER:</strong> 1, 2, 3</li>
+          <li><strong>SHAPE:</strong> Diamond, Oval, Squiggle</li>
+          <li><strong>SHADING:</strong> Solid, Striped, Empty</li>
+          <li><strong>COLOR:</strong> Red, Green, Purple</li>
+        </ul>
+        <p>
+          The three cards must display that feature as either
+          <strong>all the same, or all different</strong>
+        </p>
+        <p><strong>Set Examples</strong></p>
+        <div class="set-example"></div>
+      </div>
+    </dialog>
+  </body>
+</html>
