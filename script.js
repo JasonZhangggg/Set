@@ -82,6 +82,8 @@ let board = [];
 let selected = [];
 
 function initBoard() {
+  board = [];
+  selected = [];
   let deck = new Deck();
   for (let i = 0; i < 12; i++) {
     board.push(deck.drawCard());
