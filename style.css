@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
 
 * {
   margin: 0;
@@ -24,9 +22,10 @@ button:hover {
 }
 
 .grid {
+  justify-content: center;
   width: 60%;
   display: grid;
-  grid-template-columns: repeat(3, clamp(100px, calc(33% - 20px), 400px));
+  grid-template-columns: repeat(4, clamp(100px, calc(20% - 20px), 400px));
   grid-auto-rows: 125px;
   grid-gap: 20px;
 }
@@ -42,12 +41,12 @@ button:hover {
 }
 
 .button-menu button {
-  height: 75px;
+  height: 60px;
   width: auto;
-  padding: 10px 40px;
+  padding: 10px 20px;
   border-width: 1.5px;
   border-radius: 175px;
-  font-size: 25px;
+  font-size: 20px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
 }
@@ -86,7 +85,7 @@ hr {
 
 h2 {
   font-weight: 400;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .toolbar {
@@ -149,17 +148,17 @@ ul {
 }
 
 .help,
-.settings {
+.solution {
   padding: 20px 10px;
 }
 
 .help:hover,
-.settings:hover {
+.solution:hover {
   background-color: #f0f0f0;
 }
 
-.set-example {
-  padding-left: 30px;
+.mini-grid {
+  padding-left: 20px;
   display: grid;
   grid-template-columns: repeat(3, clamp(100px, calc(33% - 20px), 225px));
   grid-auto-rows: 125px;
@@ -176,18 +175,23 @@ ul {
   flex-direction: column;
 }
 
-.help-menu {
-  width: 60vw;
+dialog {
   height: 75vh;
   box-sizing: border-box;
   margin: auto;
   border-width: 0px;
   background: white;
   border-radius: 4px;
-  padding: 25px 60px;
+  padding: 25px 40px;
   box-shadow: 0 3px 12px -1px rgba(0, 0, 0, 0.3);
 }
 
+.help-menu {
+  width: 1000px;
+}
+.solution-menu {
+  width: 600px;
+}
 .popup {
   display: none;
   position: fixed;
@@ -196,13 +200,27 @@ ul {
 
   transform: translate(-50%, -25%);
 
-  font-size: 30px;
+  font-size: 25px;
   background-color: black;
   color: white;
   padding: 10px 20px;
   border-radius: 6px;
 
   font-weight: 600;
+}
+
+.remaining {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #5a594e;
 }
 
 .green {

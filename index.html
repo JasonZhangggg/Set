@@ -15,21 +15,38 @@
           <h1>Game of Set</h1>
         </div>
         <div class="icons">
-          <button class="settings material-symbols-outlined">settings</button>
           <button class="help material-symbols-outlined">help</button>
+          <button class="solution material-symbols-outlined">
+            emoji_objects
+          </button>
         </div>
       </div>
       <h2>Find sets of three!</h2>
       <div class="grid"></div>
+      <div class="remaining">
+        <h2>Sets remaining:</h2>
+        <div class="remaining" id="remaining"></div>
+      </div>
       <div class="button-menu">
         <button id="restart" class="white-button">Restart</button>
         <button id="deselect" class="gray-button">Deselect all</button>
         <button id="submit" class="gray-button">Submit</button>
       </div>
     </div>
+    <dialog class="solution-menu">
+      <div class="dialog-div">
+        <button id="close-sol" class="close material-symbols-outlined">
+          close
+        </button>
+        <h1>Solutions</h1>
+        <div id="solution-grid" class="mini-grid"></div>
+      </div>
+    </dialog>
     <dialog class="help-menu">
       <div class="dialog-div">
-        <button class="close material-symbols-outlined">close</button>
+        <button id="close-help" class="close material-symbols-outlined">
+          close
+        </button>
         <h1>How to Play</h1>
         <h2>Find sets of 3 elements</h2>
         <p>
@@ -47,7 +64,7 @@
           <strong>all the same, or all different</strong>
         </p>
         <p><strong>Set Examples</strong></p>
-        <div class="set-example"></div>
+        <div id="example-grid" class="mini-grid"></div>
       </div>
     </dialog>
     <div class="popup"></div>
