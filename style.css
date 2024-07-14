@@ -176,7 +176,7 @@ ul {
   flex-direction: column;
 }
 
-dialog {
+.help-menu {
   width: 60vw;
   height: 75vh;
   box-sizing: border-box;
@@ -186,6 +186,23 @@ dialog {
   border-radius: 4px;
   padding: 25px 60px;
   box-shadow: 0 3px 12px -1px rgba(0, 0, 0, 0.3);
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 25%;
+
+  transform: translate(-50%, -25%);
+
+  font-size: 30px;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+
+  font-weight: 600;
 }
 
 .green {

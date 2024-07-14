@@ -5,6 +5,7 @@ const shadings = ["solid", "striped", "empty"];
 
 class Deck {
   constructor() {
+    this._numCards = 81;
     this.cards = [];
     this.createDeck();
   }
@@ -19,10 +20,30 @@ class Deck {
         }
       }
     }
+    this.shuffle();
   }
 
   drawCard() {
     return this.cards.pop();
+  }
+
+  shuffle() {
+    this.cards = this.cards.sort(() => Math.random() - 0.5);
+  }
+
+  drawCards(n) {
+    if (n <= this._numCards) {
+      let list = [];
+      for (let i = 0; i < n; i++) {
+        list.push(this.cards.pop());
+      }
+      this._numCards -= n;
+      return list;
+    }
+  }
+
+  get numCards() {
+    return this._numCards;
   }
 }
 
@@ -57,12 +78,11 @@ class Card {
   }
 }
 
+let board = [];
+let selected = [];
+
 function initBoard() {
   let deck = new Deck();
-
-  board = [];
-  selected = [];
-
   for (let i = 0; i < 12; i++) {
     board.push(deck.drawCard());
   }
@@ -77,7 +97,7 @@ function initBoard() {
       } else {
         selected = selected.filter((c) => c !== card);
       }
-
+      console.log(selected.length);
       if (selected.length === 3) {
         submit.className = "black-button";
       } else {
@@ -98,14 +118,66 @@ function initBoard() {
   });
 }
 
+function validSet(card1, card2, card3) {
+  let setAttributes = ["color", "shape", "number", "shading"];
+  for (let attribute of setAttributes) {
+    //loops through each cards attributes and put them in one Set data structre
+    //once the set is created, the size of 1 signifies all the same attributes
+    //or size of 3 would signify the cards to have different attributes
+    let sameOrDiff = new Set([
+      card1[attribute],
+      card2[attribute],
+      card3[attribute],
+    ]);
+    //a set would be signaled by the length of either 1 or 3; so 2 would show no set
+    if (sameOrDiff.size === 2) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function handleSetClick(selected) {
+  //the event handler when a player clicks a set and goes through the
+  //process of verifying it as a set
+  //verifies its a set and initiates the replacing process to start
+  if (validSet(selected[0], selected[1], selected[2])) {
+    showPopup("You found a set!");
+    deselectAll();
+  } else {
+    showPopup("Not a set");
+  }
+}
+
+function deselectAll() {
+  selected.forEach((card) => {
+    card.selected = false;
+    selected = [];
+    deselect.className = "gray-button";
+    submit.className = "gray-button";
+  });
+  grid.childNodes.forEach((cardElem) => {
+    cardElem.classList.remove("selected");
+  });
+}
+
+function showPopup(message) {
+  popup.innerHTML = message;
+  popup.style.display = "block";
+  setTimeout(() => {
+    popup.style.display = "none";
+  }, 2000);
+}
+
 const grid = document.querySelector(".grid");
 const submit = document.querySelector("#submit");
 const deselect = document.querySelector("#deselect");
-const shuffle = document.querySelector("#shuffle");
+const restart = document.querySelector("#restart");
 const helpButton = document.querySelector(".help");
 const helpMenu = document.querySelector("dialog");
 const setExample = document.querySelector(".set-example");
 const closeButton = document.querySelector(".close");
+const popup = document.querySelector(".popup");
 
 // Generate example graphics
 example = [
@@ -133,16 +205,17 @@ helpButton.addEventListener("click", () => {
   helpMenu.showModal();
 });
 
+restart.addEventListener("click", () => {
+  grid.innerHTML = "";
+  initBoard();
+});
+
 deselect.addEventListener("click", () => {
-  selected.forEach((card) => {
-    card.selected = false;
-    selected = [];
-    deselect.className = "gray-button";
-    submit.className = "gray-button";
-  });
-  grid.childNodes.forEach((cardElem) => {
-    cardElem.classList.remove("selected");
-  });
+  deselectAll();
+});
+
+submit.addEventListener("click", () => {
+  handleSetClick(selected);
 });
 
 initBoard();
